@@ -37,7 +37,7 @@ public class Main {
                 if (arrayObstacle.get(j).GetType("WALL")) {
                     if (arrayPlayer.get(i).jump(arrayObstacle.get(j))){
                     } else {
-                        System.out.println("Игрок №  сошел с дистанции");
+                        System.out.println( arrayPlayer.get(i).getType() + " сошел с дистанции");
                         break;
                     }
                 } else {

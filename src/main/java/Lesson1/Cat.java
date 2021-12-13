@@ -3,6 +3,7 @@ package Lesson1;
 public class Cat implements Action{
     static final int MAX_RUN = 100;
     static final int MAX_JUMP = 20;
+    static final String TYPE = "Кот";
 
     @Override
     public boolean run(Obstacle runningTrack) {
@@ -24,5 +25,10 @@ public class Cat implements Action{
             System.out.println("Кот прыгнул");
         }
         return true;
+    }
+
+    @Override
+    public String getType() {
+        return TYPE;
     }
 }
