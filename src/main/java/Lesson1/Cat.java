@@ -5,12 +5,24 @@ public class Cat implements Action{
     static final int MAX_JUMP = 20;
 
     @Override
-    public void run(Obstacle runningTrack) {
-        System.out.println("Кот пробежал");
+    public boolean run(Obstacle runningTrack) {
+        if (runningTrack.GetParameter() > MAX_RUN) {
+            System.out.println("Кот НЕ пробежал");
+            return false;
+        } else {
+            System.out.println("Кот пробежал");
+        }
+        return true;
     }
 
     @Override
-    public void jump(Obstacle wall) {
-        System.out.println("Кот прыгнул");
+    public boolean jump(Obstacle wall) {
+        if (wall.GetParameter() > MAX_JUMP) {
+            System.out.println("Кот НЕ прыгнул");
+            return false;
+        } else {
+            System.out.println("Кот прыгнул");
+        }
+        return true;
     }
 }

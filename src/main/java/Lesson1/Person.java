@@ -5,13 +5,25 @@ public class Person implements Action {
     static final int MAX_JUMP = 30;
 
     @Override
-    public void run(Obstacle runningTrack) {
-        System.out.println("Человек пробежал");
+    public boolean run(Obstacle runningTrack) {
+        if (runningTrack.GetParameter() > MAX_RUN) {
+            System.out.println("Человек НЕ пробежал");
+            return false;
+        } else {
+            System.out.println("Человек пробежал");
+        }
+        return true;
+
     }
 
     @Override
-    public void jump(Obstacle wall) {
-        System.out.println("Человек прыгнул");
-
+    public boolean jump(Obstacle wall) {
+        if (wall.GetParameter() > MAX_JUMP) {
+            System.out.println("Человек НЕ прыгнул");
+            return false;
+        } else {
+            System.out.println("Человек прыгнул");
+        }
+        return true;
     }
 }

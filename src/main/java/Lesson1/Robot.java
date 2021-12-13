@@ -1,16 +1,28 @@
 package Lesson1;
 
-public class Robot implements Action{
-    static final int MAX_RUN = 500;
+public class Robot implements Action {
+    static final int MAX_RUN = 10;
     static final int MAX_JUMP = 0;
-    
+
     @Override
-    public void run(Obstacle runningTrack) {
-        System.out.println("Робот пробежал");
+    public boolean run(Obstacle runningTrack) {
+        if (runningTrack.GetParameter() > MAX_RUN) {
+            System.out.println("Робот НЕ пробежал");
+            return false;
+        } else {
+            System.out.println("Робот пробежал");
+        }
+        return true;
     }
 
     @Override
-    public void jump(Obstacle wall) {
-        System.out.println("Робот прыгнул");
+    public boolean jump (Obstacle wall) {
+        if (wall.GetParameter() > MAX_JUMP) {
+            System.out.println("Робот НЕ прыгнул");
+            return false;
+        } else {
+            System.out.println("Робот прыгнул");
+        }
+        return true;
     }
 }

@@ -9,7 +9,7 @@ public class Main {
         Action person = new Person();
         Action robot = new Robot();
 
-        Wall wall = new Wall(100);
+        Wall wall = new Wall(0);
         RunningTrack runningTrack = new RunningTrack(10);
         Wall wall1 = new Wall(200);
         Wall wall2 = new Wall(10);
@@ -35,9 +35,17 @@ public class Main {
         for (int i = 0; i < arrayPlayer.size(); i++ ) {
             for (int j = 0; j < arrayObstacle.size(); j++){
                 if (arrayObstacle.get(j).GetType("WALL")) {
-                arrayPlayer.get(i).jump(arrayObstacle.get(j));
+                    if (arrayPlayer.get(i).jump(arrayObstacle.get(j))){
+                    } else {
+                        System.out.println("Игрок №  сошел с дистанции");
+                        break;
+                    }
                 } else {
-                    arrayPlayer.get(i).run(arrayObstacle.get(j));
+                    if (arrayPlayer.get(i).run(arrayObstacle.get(j))){
+                    } else {
+                        System.out.println("Игрок сошел с дистанции");
+                        break;
+                    }
                 }
             }
 
