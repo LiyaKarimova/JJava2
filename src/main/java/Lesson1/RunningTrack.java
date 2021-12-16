@@ -2,7 +2,7 @@ package Lesson1;
 
 public class RunningTrack implements Obstacle {
     private int length;
-    private final String TYPE = "RUNNINGTRACK";
+    private final Type TYPE = Type.RUNNINGTRACK;
 
     public RunningTrack (int length) {
         this.length = length;
@@ -14,8 +14,8 @@ public class RunningTrack implements Obstacle {
     }
 
     @Override
-    public boolean GetType(String type) {
-        if (type.equals(TYPE)){
+    public boolean checkType (Type type) {
+        if (type == TYPE){
             return true;
         }
         return false;

@@ -1,6 +1,6 @@
 package Lesson1;
 
-public class Robot implements Action {
+public class Robot implements Player {
     static final int MAX_RUN = 10;
     static final int MAX_JUMP = 0;
     static final String TYPE = "Робот";
@@ -29,6 +29,6 @@ public class Robot implements Action {
 
     @Override
     public String getType() {
-        return TYPE;
+        return TYPE ;
     }
 }

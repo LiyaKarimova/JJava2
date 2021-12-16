@@ -1,5 +1,8 @@
 package Lesson1;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Main {
@@ -9,10 +12,10 @@ public class Main {
 // 3. Создайте два массива: с участниками и препятствиями, и заставьте всех участников пройти этот набор препятствий.
 //4. * У препятствий есть длина (для дорожки) или высота (для стены), а участников ограничения на бег и прыжки. Если участник не смог пройти одно из препятствий, то дальше по списку он препятствий не идет.
 
-    public static void main(String[] args) {
-        Action cat = new Cat();
-        Action person = new Person();
-        Action robot = new Robot();
+    public static void main(String[] args){
+        Cat cat = new Cat();
+        Person person = new Person();
+        Robot robot = new Robot();
 
         Wall wall = new Wall(0);
         RunningTrack runningTrack = new RunningTrack(10);
@@ -20,41 +23,55 @@ public class Main {
         Wall wall2 = new Wall(10);
         RunningTrack runningTrack1 = new RunningTrack(300);
 
-        ArrayList <Action> arrayPlayer = new ArrayList();
+        ArrayList <Player> arrayPlayer = new ArrayList();
         arrayPlayer.add(cat);
         arrayPlayer.add(person);
         arrayPlayer.add(robot);
 
        // Object [] arrayPlayer = {cat,person,robot};
 
-
         ArrayList <Obstacle> arrayObstacle = new ArrayList();
         arrayObstacle.add(wall);
         arrayObstacle.add(runningTrack);
-        arrayObstacle.add (wall1);
+        arrayObstacle.add(wall1);
         arrayObstacle.add(wall2);
         arrayObstacle.add(runningTrack1);
 
 
-
-        for (int i = 0; i < arrayPlayer.size(); i++ ) {
-            for (int j = 0; j < arrayObstacle.size(); j++){
-                if (arrayObstacle.get(j).GetType("WALL")) {
-                    if (arrayPlayer.get(i).jump(arrayObstacle.get(j))){
-                    } else {
-                        System.out.println( arrayPlayer.get(i).getType() + " сошел с дистанции");
+        for (Player player : arrayPlayer) {
+            for (Obstacle obstacle : arrayObstacle) {
+                if (obstacle.checkType(Type.WALL)) {
+                    if (!player.jump(obstacle)) {
+                        System.out.println(player.getType() + " сошел с дистанции");
                         break;
                     }
                 } else {
-                    if (arrayPlayer.get(i).run(arrayObstacle.get(j))){
-                    } else {
+                    if (!player.run(obstacle)) {
                         System.out.println("Игрок сошел с дистанции");
                         break;
                     }
                 }
             }
-
         }
+
+
+
+//        for (int i = 0; i < arrayPlayer.size(); i++ ) {
+//            for (int j = 0; j < arrayObstacle.size(); j++){
+//                if (arrayObstacle.get(j).GetType("WALL")) {
+//                    if (!arrayPlayer.get(i).jump(arrayObstacle.get(j))){
+//                        System.out.println( arrayPlayer.get(i).getType() + " сошел с дистанции");
+//                        break;
+//                    }
+//                } else {
+//                    if (!arrayPlayer.get(i).run(arrayObstacle.get(j))){
+//                        System.out.println("Игрок сошел с дистанции");
+//                        break;
+//                    }
+//                }
+//            }
+//
+//        }
 
 
 

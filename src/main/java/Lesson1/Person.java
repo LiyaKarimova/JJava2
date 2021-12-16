@@ -1,6 +1,6 @@
 package Lesson1;
 
-public class Person implements Action {
+public class Person implements Player {
     static final int MAX_RUN = 500;
     static final int MAX_JUMP = 30;
     static final String TYPE = "Человек";

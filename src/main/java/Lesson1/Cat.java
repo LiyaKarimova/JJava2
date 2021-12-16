@@ -1,6 +1,6 @@
 package Lesson1;
 
-public class Cat implements Action{
+public class Cat implements Player {
     static final int MAX_RUN = 100;
     static final int MAX_JUMP = 20;
     static final String TYPE = "Кот";
