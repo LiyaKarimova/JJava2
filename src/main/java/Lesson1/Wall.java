@@ -2,7 +2,7 @@ package Lesson1;
 
 public class Wall implements Obstacle {
     private int height;
-    private final String TYPE = "WALL";
+    private final Type TYPE = Type.WALL;
 
     public Wall (int height){
         this.height = height;
@@ -18,8 +18,8 @@ public class Wall implements Obstacle {
     }
 
     @Override
-    public boolean GetType(String type) {
-        if (type.equals(TYPE)){
+    public boolean checkType (Type type) {
+        if (type == TYPE){
             return true;
         }
         return false;

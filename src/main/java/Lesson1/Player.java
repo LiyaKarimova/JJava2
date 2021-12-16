@@ -1,6 +1,6 @@
 package Lesson1;
 
-public interface Action {
+public interface Player {
 
     boolean run (Obstacle runningTrack);
 
